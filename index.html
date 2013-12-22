@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>media-web</title>
+        <!-- meta information: -->
+        <meta name="author" content="benj fassbind" />
+        <meta name="application-name" content="media-web" />
+        <meta charset="utf-8" />
+        <!-- style links: -->
+        <link href="style/style.css" rel="stylesheet" />
+        <link href="style/reset.css" rel="stylesheet" />
+        <link href="style/font-awsome/css/font-awesome.css" rel="stylesheet" />
+        <!-- javascript sources: -->
+        <script src="js/lib/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <!-- the MEDIAWEB framework: -->
+        <script src="js/MEDIAWEB.js" type="text/javascript"></script>
+        <script src="js/MEDIAWEB.KeyboardHandler.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="main">
+            <nav id="home-navigation" class="secondary-content">
+                <h1>home</h1>
+                <a id="films" class="active" href="#"><i class="fa fa-caret-square-o-right"></i> films</a>
+                <a id="music" href="#">music</a>
+                <a id="radio" href="#">radio</a>
+                <a id="settings" href="#" class="secondary">settings</a>
+                <a id="logOut" href="#" class="secondary">log out</a>
+            </nav>
+            <div id="content">
+            </div>
+        </div>
+        <script>
+            $(document).keydown(function (key) {
+                new MEDIAWEB.KeyboardHandler($("#main")).handle(key);
+            });
+       </script>
+    </body>
+</html>

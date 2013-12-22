@@ -1,0 +1,5 @@
+/**
+Namespace: MEDIAWEB
+*/
+MEDIAWEB = {};
+

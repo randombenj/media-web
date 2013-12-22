@@ -1,0 +1,65 @@
+/* ============================================================================
+GLOBAL STYLES: */
+body {
+    background-image: url("../images/background.jpg");
+    color: #c3cfc4;
+}
+
+a {
+    color: #c3cfc4;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #c3cfc4;
+    text-decoration: none;
+}
+
+/* font color of an active element*/
+.active {
+    color: #b4ee46 !important;
+}
+
+/* a secondary content has lower opacity */
+.secondary-content {
+    opacity: 0.4;
+}
+
+/* ============================================================================
+HOME NAVIGATION STYLES: */
+#home-navigation {
+    width: 220px;
+    height: 380px;
+    margin-left: 10%;
+    font-family: Verdana;
+    float: left;
+    display: table;
+}
+
+#home-navigation > h1 {
+    font-size: 3.75em;
+    font-weight: 100;
+}
+
+#home-navigation > a {
+    display: block;
+    font-size: 1.75em;
+    margin-top: 5px; 
+}
+
+#home-navigation > .active {
+    margin-left: -35px;
+}
+
+#home-navigation .secondary {
+    display : table-row;
+    vertical-align : bottom;
+    height : 1px;
+}
+
+/* ============================================================================
+MAIN STYLES: */
+#main {
+    margin-top: 220px;
+    width: 100%;
+}
