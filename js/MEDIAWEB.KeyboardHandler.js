@@ -1,65 +1,36 @@
 /**
 Class: KeyboardHandler
 */
-MEDIAWEB.KeyboardHandler = function ($context, key) {
+MEDIAWEB.KeyboardHandler = function () {
 
-    this.$context   = $context;
-    this.$nav       = $context.find('nav');
-    this.key        = key;
+    this.$context   = $('#main');
+    this.$nav       = this.$context.find('#home-navigation');
+    this.mode      = this.$context.find('#mode').val();
 
-    this.handle = function (key) {
-        switch (key.which) {
-            case 37:
-                MEDIAWEB.KeyboardHandler($("#main")).arrow.left();
-                break;
-            case 38:
-                MEDIAWEB.KeyboardHandler($("#main")).arrow.up();
-                break;
-            case 39:
-                MEDIAWEB.KeyboardHandler($("#main")).arrow.right();
-                break;
-            case 40:
-                MEDIAWEB.KeyboardHandler($("#main")).arrow.down();
-                break;
-            case 13:
-                MEDIAWEB.KeyboardHandler($("#main")).enter();
-                break;
-            case 27:
-                MEDIAWEB.KeyboardHandler($("#main")).esc();
-            default:
-                return;
+    MEDIAWEB.KeyboardHandler.prototype.handle = function (key) {
+        if (key) {
+            switch (key.which) {
+                case 37:
+                    alert("left");
+                    break;
+                case 38:
+                    alert("up");
+                    break;
+                case 39:
+                    alert("right");
+                    break;
+                case 40:
+                    alert("down");
+                    break;
+                case 13:
+                    alert("enter");
+                    break;
+                case 27:
+                    alert("esc");
+                default:
+                    return;
+            }
+            key.preventDefault();
         }
-        key.preventDefault();
-    }
-
-    return {
-
-        //esc: function() {
-        //    alert("escape");
-        //},
-
-        //enter: function() {
-        //    alert("enter");
-        //},
-
-        //arrow: (function() {
-        //    return {
-        //        up: function() {
-        //            alert("up");
-        //        },
-        //        down: function () {
-        //            alert("down");
-        //        },
-        //        left: function () {
-        //            //alert("left");
-        //            this.$nav.find
-        //        },
-        //        right: function () {
-        //            alert("right");
-        //        }
-        //    }
-        //})()
-
-
     }
 };

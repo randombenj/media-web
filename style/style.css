@@ -15,6 +15,12 @@ a:visited {
     text-decoration: none;
 }
 
+.clear {
+    width: 0px;
+    height: 0px;
+    clear: both;
+}
+
 /* font color of an active element*/
 .active {
     color: #b4ee46 !important;
@@ -62,4 +68,90 @@ MAIN STYLES: */
 #main {
     margin-top: 220px;
     width: 100%;
+}
+
+/*
+CONTENT (MOVIE) STYLES: */
+#content {
+    font-family: Verdana;
+    width: 1280px;
+}
+
+#content .active-item {
+    display:block !important;
+}
+
+#content .content-item {
+    display: none;
+}
+
+#content .content-item > h1 {
+    font-size: 3em;
+    font-weight: 100;
+    height: 70px;
+    float: left;
+    width: 880px;
+}
+#content .content-item .content-image,
+#content .content-item .meta,
+#content .content-item .plot {
+    display: block;
+    float: left;
+}
+    
+#content .content-item .content-image {
+    border: 2px solid #c3cfc4;
+    margin-left: 4px;
+    height: 317px;
+    min-width: 214px;
+    max-width: 400px;
+}
+
+/*
+    content meatadata:*/
+#content .content-item .meta {
+    height: 321px;
+    border-right: 1px solid #c3cfc4;
+}
+
+#content .content-item .meta,
+#content .content-item .meta span,
+#content .content-item .meta div,
+#content .content-item .meta div a {
+    width: 160px;
+}
+
+#content .content-item .meta span {
+    margin-bottom: 4px;
+}
+
+#content .content-item .meta .year {
+    float: left;
+    border-left: 8px solid #b4ee46;
+    padding-left: 16px;
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+#content .content-item .meta .length {
+    padding-left: 24px;
+    font-size: 1.2em;
+}
+
+#content .content-item .meta .genre {
+    padding-left: 24px;
+}
+
+#content .content-item .meta .genre a {
+    display: block;
+}
+
+#content .content-item .plot {
+    margin-left: 20px;
+    width: 320px;
+}
+
+#content .content-item .plot h2 {
+    font-size: 2em;
+    margin-bottom: 8px;
 }

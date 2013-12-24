@@ -10,11 +10,16 @@
         <link href="style/style.css" rel="stylesheet" />
         <link href="style/reset.css" rel="stylesheet" />
         <link href="style/font-awsome/css/font-awesome.css" rel="stylesheet" />
-        <!-- javascript sources: -->
-        <script src="js/lib/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <!-- jquery: -->
+        <script src="lib/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <!-- jquery ui: -->
+        <link rel="stylesheet" href="lib/css/themename/jquery-ui.custom.css" />
+        <script src="lib/js/jquery.min.js"></script>
+        <script src="lib/js/jquery-ui.custom.min.js"></script>
         <!-- the MEDIAWEB framework: -->
         <script src="js/MEDIAWEB.js" type="text/javascript"></script>
         <script src="js/MEDIAWEB.KeyboardHandler.js" type="text/javascript"></script>
+        <script src="js/MEDIAWEB.FontHelper.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="main">
@@ -27,12 +32,126 @@
                 <a id="logOut" href="#" class="secondary">log out</a>
             </nav>
             <div id="content">
+
+                <div class="content-item" data-index="0">
+                    <h1 class="title">The Hunger Games: Catching Fire</h1>
+                    <img class="content-image" alt="Die Tribute von Panem - Catching Fire (2013) Poster" 
+                        title="Die Tribute von Panem - Catching Fire (2013) Poster"
+                        src="http://imdb-poster.b0.upaiyun.com/001/951/264.jpg!cover?_upt=5fff45b41387935537" itemprop="image">
+                    <div class="meta">
+                        <span class="year">2013</span>
+                        <span class="length">146 min</span>
+                        <div class="genre">
+                            <a href="#">action</a>
+                            <a href="#">adventure</a>
+                            <a href="#">sci-fi</a>
+                        </div>
+                    </div>
+                    <div class="plot">
+                        <h2>Plot:</h2>
+                        <span>
+                            Katniss Everdeen has returned home safe after winning the 74th Annual Hunger Games along with fellow tribute Peeta Mellark. Winning means that they must turn around and leave their family and close friends, embarking on a "Victor's Tour" of the districts. Along the way Katniss senses that a rebellion is simmering, but the Capitol is still very much in control as President Snow prepares the 75th Annual Hunger Games (The Quarter Quell) - a competition that could change Panem forever.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="content-item" data-index="1">
+                    <h1 class="title">The Hobbit: The Desolation of Smaug</h1>
+                    <img class="content-image" alt="Die Tribute von Panem - Catching Fire (2013) Poster" 
+                        title="Die Tribute von Panem - Catching Fire (2013) Poster"
+                        src="http://imdb-poster.b0.upaiyun.com/001/170/358.jpg!cover?_upt=c870bd361387940355" itemprop="image">
+                    <div class="meta">
+                        <span class="year">2013</span>
+                        <span class="length">161 min</span>
+                        <div class="genre">
+                            <a href="#">adventure</a>
+                            <a href="#">fantasy</a>
+                        </div>
+                    </div>
+                    <div class="plot">
+                        <h2>Plot:</h2>
+                        <span>
+                            After successfully crossing over (and under) the Misty Mountains, Thorin and Company must seek aid from a powerful stranger before taking on the dangers of Mirkwood Forest--without their Wizard. If they reach the human settlement of Lake-town it will be time for the hobbit Bilbo Baggins to fulfill his contract with the dwarves. The party must complete the journey to Lonely Mountain and burglar Baggins must seek out the Secret Door that will give them access to the hoard of the dragon Smaug. And, where has Gandalf got off to? And what is his secret business to the south?
+                        </span>
+                    </div>
+                </div>
+
             </div>
         </div>
+        <input id="mode" type="hidden" value="content" />
         <script>
-            $(document).keydown(function (key) {
-                new MEDIAWEB.KeyboardHandler($("#main")).handle(key);
+            $(document).ready(function () {
+
+                $('.title').each(function () {
+                    $(this).css('font-size', MEDIAWEB.FontHelper.maxEM($(this)) + 'em');
+                });
+
+                $('.content-item[data-index="0"]').fadeIn(200);
+
+                $('#home-navigation').mouseover(function () {
+                    $(this).fadeTo(100, 1);
+                    $(this).removeClass('secondary-content');
+                });
+
+                $('#home-navigation').mouseleave(function () {
+                    $(this).fadeTo(100, 0.4);
+                    $(this).addClass('secondary-content');
+                });
             });
+
+            var index = 0;
+            $(document).keydown(function (key) {
+                //new MEDIAWEB.KeyboardHandler().handle(key);
+                if (key.which == 38) { // up
+                    if ($('#mode').val() == "content") {
+                        previousContentItem();
+                    }
+                }
+                if (key.which == 40) { // down
+                    if ($('#mode').val() == "content") {
+                        nextContentItem();
+                    }
+                }
+                if (key.which == 39) { // right
+                    changeMode();
+                }
+                if (key.which == 37) { // left
+                    changeMode();
+                }
+            });
+
+            $(window).bind('mousewheel', function (event) {
+                if (event.originalEvent.wheelDelta >= 0) {
+                    if ($('#mode').val() == "content") {
+                        previousContentItem();
+                    }
+                }
+                else {
+                    if ($('#mode').val() == "content") {
+                        nextContentItem();
+                    }
+                }
+            })
+
+            function previousContentItem() {
+                index--;
+                if ($('.content-item[data-index="' + index + '"]').length > 0) {
+                    $('.content-item[data-index="' + (index + 1) + '"]').fadeOut(50);
+                    $('.content-item[data-index="' + index + '"]').delay(110).fadeIn(50);
+                } else {
+                    index++;
+                }
+            }
+
+            function nextContentItem() {
+                index++;
+                if ($('.content-item[data-index="' + index + '"]').length > 0) {
+                    $('.content-item[data-index="' + (index - 1) + '"]').fadeOut(50)
+                    $('.content-item[data-index="' + index + '"]').delay(110).fadeIn(50);
+                } else {
+                    index--;
+                }
+            }
        </script>
     </body>
 </html>
