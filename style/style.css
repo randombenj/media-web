@@ -112,6 +112,7 @@ CONTENT (MOVIE) STYLES: */
 #content .content-item .meta {
     height: 321px;
     border-right: 1px solid #c3cfc4;
+    display: table;
 }
 
 #content .content-item .meta,
@@ -139,19 +140,37 @@ CONTENT (MOVIE) STYLES: */
 }
 
 #content .content-item .meta .genre {
-    padding-left: 24px;
+    height: 0px;
+    display : table-row;
+    vertical-align : bottom;
 }
 
 #content .content-item .meta .genre a {
     display: block;
+    padding-left: 24px;
+    margin-bottom: 2px;
 }
 
 #content .content-item .plot {
-    margin-left: 20px;
-    width: 320px;
+    margin-left: 30px;
+    width: 380px;
+    height: 301px;
+    padding: 10px;
+    text-align: justify;
+    line-height: 1.18em;
+    background-color: rgba(94, 93, 93, 0.24);
+    border: 1px solid rgba(112, 112, 112, 0.24);
 }
 
 #content .content-item .plot h2 {
+    margin-top: 10px;
     font-size: 2em;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+#content .content-item .plot span {
+    display: inline-block;
+    height: 260px;
+    padding-right: 10px;
+    overflow-y: auto;
 }
