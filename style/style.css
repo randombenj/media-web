@@ -75,6 +75,7 @@ CONTENT (MOVIE) STYLES: */
 #content {
     font-family: Verdana;
     width: 1280px;
+    float: left;
 }
 
 #content .active-item {
