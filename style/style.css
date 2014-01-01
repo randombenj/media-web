@@ -21,7 +21,7 @@ a:visited {
     clear: both;
 }
 
-/* font color of an active element*/
+/* font color of an active element */
 .active {
     color: #b4ee46 !important;
 }
@@ -68,13 +68,13 @@ MAIN STYLES: */
 #main {
     margin-top: 220px;
     width: 100%;
+    min-width: 1320px;
 }
 
 /*
 CONTENT (MOVIE) STYLES: */
 #content {
     font-family: Verdana;
-    width: 1280px;
     float: left;
 }
 
@@ -108,8 +108,7 @@ CONTENT (MOVIE) STYLES: */
     max-width: 400px;
 }
 
-/*
-    content meatadata:*/
+/* content meatadata:*/
 #content .content-item .meta {
     height: 321px;
     border-right: 1px solid #c3cfc4;

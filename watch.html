@@ -27,11 +27,34 @@
                 <!--<video  width="1280" height="720" controls>
                     <source src="udp://localhost:9999/stream.ogg" type="video/ogg" />
                 </video>-->
-                <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org"
-                     width="1280" 
-                    height="720" 
-                    src="file:///<path>" />
-                <object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab"></object>
+                <div id="container">
+                    <embed id="video" onclick="javascript:play()" type="application/x-vlc-plugin" pluginspage="http://www.videolan.org"
+                         width="1280" 
+                        height="720" 
+                        src="file:///<path>" />
+                    <object class="video" classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab"></object>
+                </div>
+                <a id="mute">mute</a>
+                <a id="fullscreen">fullscreen</a>
+                <script type="text/javascript">
+                    var vlc = document.getElementById('video');
+
+                    $('#mute').click(function () {
+                        vlc.audio.toggleMute();
+                        return false;
+                    });
+
+                    $('#fullscreen').click(function () {
+                        vlc.playlist.togglePause();
+                        return false;
+                    });
+
+                    $('#container').click(function () {
+                        vlc.playlist.togglePause();
+                        return false;
+                    });
+
+                </script>
             </div>
         </div>
     </body>
