@@ -36,9 +36,10 @@ HOME NAVIGATION STYLES: */
 #home-navigation {
     width: 220px;
     height: 380px;
-    margin-left: 10%;
+    margin-left: 6%;
     font-family: Verdana;
     float: left;
+    padding-left: 50px;
     display: table;
 }
 

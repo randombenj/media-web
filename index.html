@@ -35,7 +35,7 @@
 
                 <div class="content-item" data-index="0">
                     <h1 class="title">
-                        <a href="watch.html">The Hunger Games: Catching Fire</a>
+                        <a class="watch" href="watch.html">The Hunger Games: Catching Fire</a>
                     </h1>
                     <div class="clear"></div>
                     <img class="content-image" alt="Die Tribute von Panem - Catching Fire (2013) Poster" 
@@ -60,7 +60,7 @@
 
                 <div class="content-item" data-index="1">
                     <h1 class="title">
-                        <a href="watch.html">The Hobbit: The Desolation of Smaug</a>
+                        <a class="watch" href="watch.html">The Hobbit: The Desolation of Smaug</a>
                     </h1>
                     <div class="clear"></div>
                     <img class="content-image" alt="Die Tribute von Panem - Catching Fire (2013) Poster" 
@@ -101,17 +101,6 @@
                         $(this).delay(200).fadeTo(100, 0.4);
                         $(this).addClass('secondary-content');
                 });
-
-
-                //$('#home-navigation').mouseover(function () {
-                //    $(this).fadeTo(100, 1);
-                //    $(this).removeClass('secondary-content');
-                //});
-
-                //$('#home-navigation').mouseleave(function () {
-                //    $(this).fadeTo(100, 0.4);
-                //    $(this).addClass('secondary-content');
-                //});
             });
 
             var index = 0;
@@ -133,6 +122,11 @@
                 if (key.which == 37) { // left
                     changeMode();
                 }
+                if (key.which == 13) {
+                    if ($('#mode').val() == "content") {
+                        watch();
+                    }
+                }
             });
 
             $(window).bind('mousewheel', function (event) {
@@ -147,6 +141,10 @@
                     }
                 }
             })
+
+            function watch() {
+                window.location = $('.content-item[data-index="' + index + '"]').find($('.watch')).attr('href');
+            }
 
             function previousContentItem() {
                 index--;
