@@ -1,4 +1,4 @@
 media-web
 =========
 
-Movie media center web based with html 5
+Movie media center web based on html 5
